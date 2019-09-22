@@ -67,8 +67,8 @@ class App extends React.Component {
   }
 
   calCelsius(temp) {
-    let cell = Math.floor(temp - 273.15);
-    return cell;
+    let cel = Math.floor(temp - 273.15);
+    return cel;
   }
 
   getWeather = async e => {
@@ -81,7 +81,7 @@ class App extends React.Component {
       const Api_Key = "c36da6fe5fc960fa20baa69893c33df2";
 
       const api_call = await fetch(
-        `http://api.openweathermap.org/data/2.5/weather?q=${city},${country}&appid=${Api_Key}`
+        `https://api.openweathermap.org/data/2.5/weather?q=${city},${country}&appid=${Api_Key}`
       );
 
       const response = await api_call.json();
@@ -97,7 +97,7 @@ class App extends React.Component {
         error: false
       });
 
-      // seting icons
+      // setting icons
       this.get_WeatherIcon(this.weatherIcon, response.weather[0].id);
 
       console.log(response);
